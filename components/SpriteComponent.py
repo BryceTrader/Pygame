@@ -1,9 +1,13 @@
-from BaseComponent import BaseComponent
+from xml.sax import SAXNotRecognizedException
+from pygame import image
+from os import path
 
-class SpriteComponent(BaseComponent):
-    def __init__(self, sprite) -> None:
-        super().__init__("SpriteComponent")
-        self.sprite = sprite
-        
-    def __repr__(self) -> str:
-        return f'SpriteComponent({self.name}, {self.sprite})'
+def get_image(file):
+    return image.load(path.join('..', 'assets', f'{file}.png'))
+
+class SpriteComponent:
+    def __init__(self, sprite, sizeX, sizeY):
+        self.name = "SpriteComponent"
+        self.sprite = get_image(sprite)
+        self.sizeX = sizeX
+        self.sizeY = sizeY

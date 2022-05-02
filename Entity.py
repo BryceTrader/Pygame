@@ -2,7 +2,6 @@ class Entity:
     def __init__(self, name, *components) -> None:
         self.components = {}
         self.name = name
-        
         for component in components:
             self.add_component(component)
     
@@ -10,5 +9,5 @@ class Entity:
         return f'Entity({self.name}, {self.components})'
         
     def add_component(self, component) -> None:
-        key = component['name']
+        key = component.name
         self.components[key] = component
